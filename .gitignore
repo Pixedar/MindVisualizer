@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+*.egg-info/
+dist/
+build/
+.idea/
+
+# Large data files (see README for download instructions)
+
+data/meshes_obj/*.obj
+data/meshes/*.obj
+.venv
+debug_brain_coverage.py
+debug_gpt_path.py
+.env

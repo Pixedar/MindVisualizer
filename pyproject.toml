@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "mindvisualizer"
+version = "0.1.0"
+description = "Brain flow particle visualizer with probe analysis"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "vtk>=9.2",
+    "langchain>=0.3",
+    "langchain-openai>=0.3",
+    "langchain-community>=0.3",
+    "faiss-cpu>=1.7",
+    "python-dotenv>=1.0",
+    "certifi>=2023.0",
+    "tiktoken>=0.5",
+]
+
+[project.scripts]
+mindviz = "src.main:main"
