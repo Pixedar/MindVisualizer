@@ -54,7 +54,7 @@ Create a `.env` file in the project root:
 OPENAI_API_KEY=sk-your-key-here
 ```
 
-By default the app uses **GPT-5.4-mini** — a fast, cost-efficient model suitable for testing and general use. For higher-quality neuroscience interpretations, pass `--hq` to switch to **GPT-5.4** (see Usage below).
+By default the app uses **GPT-5.4-mini** — a fast, cost-efficient model suitable for testing. For general use and higher-quality neuroscience interpretations, pass `--hq` to switch to **GPT-5.4** (see Usage below).
 
 > **Note:** Without `--hq`, all LLM calls use **GPT-5.4-mini**. This is recommended for testing or if you want to avoid spending on expensive tokens. The `--hq` flag switches every LLM call to **GPT-5.4**, which produces significantly better neuroscience interpretations but costs more.
 
@@ -89,7 +89,7 @@ python setup_brain_data.py
 
 This downloads the **Allen Human Brain Atlas** via BrainGlobe (`allen_human_500um`), prepares meshes, and builds a cached voxel label grid for fast anatomical region lookup.
 
-### 3) rDCIM graph data (~636 KB)
+### 3) rDCIM graph data 
 
 Place in `data/`:
 
@@ -109,7 +109,6 @@ Place in `data/`:
 
 ```bash
 # Basic flow visualization (recommended: --no-rag, see note below)
-# -- hq High-quality model for better interpretations
 python -m src.main --no-rag --hq
 
 ```
@@ -117,32 +116,38 @@ python -m src.main --no-rag --hq
 ### Raw rDCIM mode
 
 ```bash
+
+# If this is first execution pre-initialize global brain state, otherwise it will be empty and the LLM won't have any context to interpret perturbations. It auto fills rois based on some global brain state description
+python examples/rdcim_propagation.py --hq --global-state "someone feeling anxious"
+
 # Interactive graph visualization
 python examples/rdcim_propagation.py --hq
 
-# Pre-initialize global brain state
-python examples/rdcim_propagation.py --hq --global-state "someone feeling anxious"
-
 ```
-
+> **Global state note:** The `--global-state` currently is using the llm to auto fill the inital states of roi, but for best results its recommend to manually create or edit data\brain_states_rdcim.json with expert-level neuroscience descriptions for each ROI
 > **RAG note:** I currently recommend using `--no-rag` for the flow mode. The RAG database is implemented but not yet populated with medical-grade neuroscience knowledge — this is underway. Use caution: this feature is still in a testing stage.
 
 ---
 
-## Controls
+## Controls/ How to use the app
 
 ### Flow mode
-
-- **`G` + click** — place a probe in the flow field
-- **`Shift + G`** — ask the LLM to interpret the recorded probe trajectory
+basic:
+1. **`G` + click** — place a probe in the flow field
+2. **`Shift + G`** — ask the LLM to interpret the recorded probe trajectory, keep in mind that if you use hq flag you might wait some time for response do not clear the probe until you get the response
+3. **`C`** — clear all probes
+> **Note:** If you put the porbe near the surface of the brain the probe might not be picked up by the flow, try placing it a bit deeper or in strong flow regions
+advanced:
+- ** `b` ** - toogle branching mode on/off. When branching mode is on, the probe will split into multiple probes where there is flow divergence
+- ** `+ or -` ** - increase/decrease speed of the flow
 - **`S`** — initialize brain states
 - **`Shift + S`** — propagate state changes through the probe path
 
 ### Raw rDCIM mode
 
-- **click ROI** — select a parcel / region
-- **`P`** — perturb the selected ROI
-- **`Shift + P`** — propagate the perturbation through the connectivity graph
+1. **click ROI** — select a parcel / region
+2. **`P`** — perturb the selected ROI (The app will propose you the perturbation options based on the current state of the brain and the selected ROI, but you can also write your own custom perturbation)
+3. **`Shift + P`** — one you choose a perturbation you can start propagating it through the graph by clicking shift+p
 
 ---
 
