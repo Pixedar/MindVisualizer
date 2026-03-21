@@ -137,9 +137,10 @@ basic:
 2. **`Shift + G`** — ask the LLM to interpret the recorded probe trajectory, keep in mind that if you use hq flag you might wait some time for response do not clear the probe until you get the response
 3. **`C`** — clear all probes
 > **Note:** If you put the porbe near the surface of the brain the probe might not be picked up by the flow, try placing it a bit deeper or in strong flow regions
+
 advanced:
-- ** `b` ** - toogle branching mode on/off. When branching mode is on, the probe will split into multiple probes where there is flow divergence
-- ** `+ or -` ** - increase/decrease speed of the flow
+- **`B`** - toogle branching mode on/off. When branching mode is on, the probe will split into multiple probes where there is flow divergence
+- **`+ or -`** - increase/decrease speed of the flow
 - **`S`** — initialize brain states
 - **`Shift + S`** — propagate state changes through the probe path
 
