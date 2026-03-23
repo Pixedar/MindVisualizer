@@ -112,6 +112,8 @@ class FlowMeshOverlay:
 
         # ----- discover OBJ meshes only -----
         obj_dir = self.dir.parent / "meshes_obj"
+        if not obj_dir.exists():
+            obj_dir = self.dir  # fall back to meshes/ if meshes_obj/ absent
         self.keys: dict[str, Path] = {}
         if obj_dir.exists():
             for obj in sorted(obj_dir.glob("*.obj")):

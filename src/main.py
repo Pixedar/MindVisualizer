@@ -513,8 +513,11 @@ def main():
             # Load or build voxel label grid for fast point-in-region queries
             grid_cache = DATA_DIR / "label_grid_cache.npz"
             if not flow_mesh.load_label_grid(grid_cache):
+                print("[flow mesh] No cached label grid found — building now "
+                      "(this takes ~30-60s, one-time only)...")
                 flow_mesh.build_label_grid()
                 flow_mesh.save_label_grid(grid_cache)
+                print("[flow mesh] Label grid cached for future runs.")
         except Exception as e:
             print("[flow mesh] disabled:", e)
             flow_mesh = None

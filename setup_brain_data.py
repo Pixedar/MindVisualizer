@@ -40,18 +40,21 @@ def main():
         print(f"[setup] ERROR: Atlas meshes not found at {src_meshes}")
         return
 
-    # ---- Step 2: Copy meshes ----
+    # ---- Step 2: Copy meshes to both meshes/ and meshes_obj/ ----
+    MESH_OBJ_DIR = DATA_DIR / "meshes_obj"
     MESH_DIR.mkdir(parents=True, exist_ok=True)
+    MESH_OBJ_DIR.mkdir(parents=True, exist_ok=True)
     obj_files = list(src_meshes.glob("*.obj"))
-    print(f"[setup] Copying {len(obj_files)} OBJ meshes to {MESH_DIR}/...")
+    print(f"[setup] Copying {len(obj_files)} OBJ meshes...")
 
     copied = 0
     for obj in obj_files:
-        dst = MESH_DIR / obj.name
-        if not dst.exists() or dst.stat().st_size != obj.stat().st_size:
-            shutil.copy2(obj, dst)
-            copied += 1
-    print(f"[setup] Copied {copied} new meshes ({len(obj_files)} total)")
+        for target_dir in (MESH_DIR, MESH_OBJ_DIR):
+            dst = target_dir / obj.name
+            if not dst.exists() or dst.stat().st_size != obj.stat().st_size:
+                shutil.copy2(obj, dst)
+                copied += 1
+    print(f"[setup] Copied meshes ({len(obj_files)} files to meshes/ and meshes_obj/)")
 
     # ---- Step 3: Copy structures.json ----
     structs_src = atlas_dir / "structures.json"

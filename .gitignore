@@ -14,7 +14,7 @@ build/
 data/meshes_obj/*.obj
 data/meshes/*.obj
 data/label_grid_cache.npz
-data/label_grid_keys.json
+data/label_grid_cache.keys.json
 
 # Extra parcellation atlases (user downloads separately)
 data/extra_parcellation/*.nii
