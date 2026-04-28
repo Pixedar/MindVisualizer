@@ -39,6 +39,8 @@ At the end, the LLM provides an interpretation of what this perturbation changed
 
 In this mode, you explore a learned resting-state manifold rather than anatomical brain space directly. The manifold is a 2SDM-style low-dimensional embedding, and the flow field is an MDN learned from trajectories through that space. You place a probe in the manifold, let it follow the learned flow, and the right panel updates in real time to show the corresponding ROI activation pattern. When you freeze the probe (`Shift+G`), the system compares the start and end ROI patterns and asks the LLM to interpret which networks became more or less involved, and what kind of resting-state transition that path may reflect.
 
+![Flow mode demo](assets/gifC.gif)
+
 > Based on the original [2sDM paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC8410525/) and extended in my [Brain State Manifold video](https://www.youtube.com/watch?v=CyhyVNfDDZs).
 
 ---
