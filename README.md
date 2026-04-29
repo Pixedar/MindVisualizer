@@ -42,7 +42,7 @@ In this mode, you explore a learned resting-state manifold rather than anatomica
 
 ![Flow mode demo](assets/gifC.gif)
 
-> Based on the original [2sDM paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC8410525/) and extended in my [Brain State Manifold video](https://www.youtube.com/watch?v=CyhyVNfDDZs).
+> Based on the original [2sDM paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC8410525/) and extended into flow filed in my [Brain State Manifold video](https://www.youtube.com/watch?v=CyhyVNfDDZs).
 
 ---
 
@@ -232,6 +232,10 @@ The built-in combined atlas merges Harvard-Oxford (Desikan et al., 2006) and Jul
 - **Yeh, F.-C. et al. (2022).** *Population-based tract-to-region connectome of the human brain*. Nature Communications.
 
 ---
+
+## Observations
+
+If you explore something interesting — a flow path that makes intuitive sense, a perturbation that produces a surprising network shift, or any insight about how the brain might be organizing itself at rest — please add it to [OBSERVATIONS.md](OBSERVATIONS.md). The goal is to build a shared, informal record of what people notice, which could help form better mental models of resting-state dynamics over time.
 
 ## License
 
