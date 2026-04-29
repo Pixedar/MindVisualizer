@@ -289,7 +289,9 @@ class ROIFlowLLM:
             "shift in brain dynamics. Consider the spatial pattern (which networks "
             "gained vs lost contribution), the directionality, and what spontaneous "
             "resting-state process would produce this exact transition.\n\n"
-            "Keep your response SHORT — 2-3 concise paragraphs maximum."
+            "Keep your response SHORT — 2-3 concise paragraphs maximum.\n\n"
+            "Note: ROI deltas are interpolated from a learned resting-state manifold — "
+            "interpret transitions as shifts in dynamic brain state, not literal activations."
         )
 
         question = context
@@ -358,7 +360,9 @@ class ROIFlowLLM:
             "explain the divergence? Which path represents a more dramatic "
             "state change? Are they transitions within the same network or "
             "do they involve fundamentally different networks?\n\n"
-            "Keep your response SHORT — 2-3 concise paragraphs maximum."
+            "Keep your response SHORT — 2-3 concise paragraphs maximum.\n\n"
+            "Note: both paths are trajectories through a learned resting-state manifold — "
+            "compare them as different dynamic regimes, not literal biological events."
         )
 
         question = (

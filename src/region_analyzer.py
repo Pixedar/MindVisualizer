@@ -570,6 +570,8 @@ CRITICAL INSTRUCTIONS — read carefully before answering:
 5. DO explain how each region transforms the signal before passing it on — not just what each region "does" in general, but what it does to THIS specific incoming signal.
 6. DO consider laterality: if the flow is in the left or right hemisphere, explain what that implies about the type of processing (e.g., left-lateralized language processing, right-lateralized spatial processing).
 7. This is a RESTING-STATE brain — describe what spontaneous cognitive process would produce this exact flow. Be concrete: "the brain is likely consolidating a recent spatial memory" is better than "this involves memory processing."
+
+Note: the flow direction reflects rDCM effective connectivity (who influences whom), not neural signal timing. Particle speed is a visualization scale, not biological latency.
 """
     )
 
@@ -616,6 +618,8 @@ CRITICAL INSTRUCTIONS — read carefully before answering:
 5. DO explain how each region transforms the signal before passing it on — not just what each region "does" in general, but what it does to THIS specific incoming signal.
 6. DO consider laterality: if the flow is in the left or right hemisphere, explain what that implies about the type of processing (e.g., left-lateralized language processing, right-lateralized spatial processing).
 7. This is a RESTING-STATE brain — describe what spontaneous cognitive process would produce this exact flow. Be concrete: "the brain is likely consolidating a recent spatial memory" is better than "this involves memory processing."
+
+Note: the flow direction reflects rDCM effective connectivity (who influences whom), not neural signal timing. Particle speed is a visualization scale, not biological latency.
 """
     )
 

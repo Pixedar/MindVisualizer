@@ -592,7 +592,9 @@ CRITICAL INSTRUCTIONS:
 2. RESTING-STATE CONTEXT: The connectivity data reflects intrinsic resting-state dynamics. Information flow here represents spontaneous internal cognition or modulation of the target region's resting equilibrium.
 3. INHIBITORY vs EXCITATORY: If the connection is INHIBITORY, the incoming signal SUPPRESSES or DAMPENS the target region's activity. If EXCITATORY, it AMPLIFIES or FACILITATES the target's function. This fundamentally changes the nature of the state change.
 4. INTRINSIC DYNAMICS: Focus on how the target region's OWN function shifts, not on relaying the source's content.
-5. Output ONLY the precise description of the target region's new state (1-2 sentences). No conversational filler."""
+5. Output ONLY the precise description of the target region's new state (1-2 sentences). No conversational filler.
+
+Note: connection weights are directed influence estimates from resting-state fMRI — interpret propagation as the most likely influence pattern, not literal neural signal timing."""
                 )
 
                 chain = prompt | llm | StrOutputParser()
@@ -700,6 +702,8 @@ CRITICAL INSTRUCTIONS:
 2. RESTING-STATE CONTEXT: This is intrinsic resting-state dynamics, not task-driven activity. Describe subtle modulations, not dramatic activations.
 3. INTRINSIC DYNAMICS: Focus on how {target}'s OWN function shifts given the incoming signal. The target region does what IT does, influenced by the source — not what the source does.
 
+Note: signal strength here is a proxy from the flow field magnitude, not a measured biological quantity. Interpret as the most likely direction of influence, not neural propagation timing.
+
 Output ONLY the precise description of {target}'s new state (1-2 sentences). No labels, no prefixes."""
             )
 
@@ -781,6 +785,8 @@ CRITICAL INSTRUCTIONS:
 2. This is a resting-state brain network — interpret changes as shifts in intrinsic functional organization, not external stimulus-response narratives.
 3. FOCUS ON INTRINSIC STATES: Synthesize this data into ONE coherent paragraph explaining the overall shift in the subject's internal cognitive, emotional, or physiological baseline.
 4. NETWORK LEVEL INTEGRATION: Identify the broad functional domains driving the new equilibrium and describe the holistic network-level transition based purely on the provided state changes.
+
+Note: the underlying connectivity is directed effective connectivity from resting-state fMRI — read the overall shift as a change in inter-regional influence patterns, not a literal neural event cascade.
 
 Provide your coherent resting-state network insight below:"""
         )

@@ -12,6 +12,7 @@ The second is a **raw rDCIM connectivity mode**. Here, the brain is represented 
 
 The third is an **ROI flow mode** — a dual-window visualization where the left panel shows particle flow through a learned resting-state manifold, and the right panel shows the corresponding ROI activation pattern. The manifold is a 2SDM-style low-dimensional embedding of resting-state fMRI, and the flow field is an MDN learned from trajectories through that space. As you trace a path, the system maps each position to a brain-region activation vector using kNN interpolation, and the LLM interprets which networks become more or less involved.
 ## Flow mode
+
 The flow mode is designed for interactive exploration.
 
 You can press **`G`** to place a probe somewhere in the flow field. Once placed, the probe is carried by the flow itself, tracing a path through the brain as if it were "grabbed" by the underlying information dynamics.
@@ -235,3 +236,7 @@ The built-in combined atlas merges Harvard-Oxford (Desikan et al., 2006) and Jul
 ## License
 
 Research use. See the original data sources and their respective licenses / terms for any reused external assets.
+
+---
+
+> **Note:** The flow direction represents rDCM effective connectivity (who influences whom at rest), not neural signal timing. Particle speed is a visualization scale. The rDCM matrix was precomputed from rs-fMRI — I originally wanted to use BOLD timing but it is too temporally blurred for this; higher-quality data might make that possible in the future.
